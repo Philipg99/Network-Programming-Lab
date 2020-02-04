@@ -22,7 +22,7 @@ int main()
 	int count=0,c=1,i,ss;
 	fd = open ("file", O_RDWR | O_CREAT | O_TRUNC, 0777 ); 
 	
-
+	printf ("My pid=%d\n", getpid ( )); 
 	printf("%d %s %s\n",rdr.roll,rdr.name,rdr.branch);
 	printf("1.enter 2.search 3.exit\n");
 
