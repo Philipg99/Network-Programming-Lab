@@ -19,7 +19,7 @@ int main()
 	int fd;
 	ssize_t nr;
 	off_t ret;
-	int count=0,c=1,i;
+	int count=0,c=1,i,ss;
 	fd = open ("file", O_RDWR | O_CREAT | O_TRUNC, 0777 ); 
 	
 
@@ -37,11 +37,13 @@ int main()
 		}
 
 		if (c==2){
+			printf("search by roll no: ");
+			scanf("%d",&ss);
 			i=0;
 			while(i<count){
 				ret = lseek (fd, (off_t) i*(sizeof(rdr)), SEEK_SET);
 				nr = read (fd, &rdr, sizeof(rdr));
-				printf("%d %s %s\n",rdr.roll,rdr.name,rdr.branch);
+				if (ss==rdr.roll) printf("%d %s %s\n",rdr.roll,rdr.name,rdr.branch);
 				i++;
 			}
 		}
